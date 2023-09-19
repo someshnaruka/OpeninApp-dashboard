@@ -27,13 +27,16 @@ console.log(Userdata,"login data");
 console.log(Userdata,"userdata");
   useEffect(() => {
     (() => {
-      const config = {
-        params:{
-         email: logindata.email,
-        }
-      };
+      // const config = {
+      //   params:{
+      //    email: logindata.email,
+      //   }
+      // };
+      const data={
+        email:logindata.email
+      }
       axios
-        .get(process.env.REACT_APP_SERVER_DOMAIN + "/getuser",config)
+        .post(process.env.REACT_APP_SERVER_DOMAIN + "/getuser",data,{withCredentials:true})
         .then((response) => {
           if(response.data.alert)
           {

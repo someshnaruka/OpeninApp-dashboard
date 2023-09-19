@@ -7,6 +7,7 @@ import { dataRedux } from "../features/dataSlice";
 function Modal(props) {
   const data=useSelector((state)=>state.user)
     const [section,setSection]=useState("basic")
+    const [load,setLoad]=useState(false);
     const [details,setDetails]=useState({
       Useremail:data.email,
       name:"",
@@ -33,11 +34,13 @@ const dispatch=useDispatch();
       e.preventDefault();
       if(details.name && details.email && details.phone)
       {
+        setLoad(true);
         axios.post(process.env.REACT_APP_SERVER_DOMAIN + "/newUser",details).then((response)=>{
           if(response.data.alert)
           {
             dispatch(dataRedux(response.data.result));
             toast(response.data.message);
+            setLoad(true);
             props.close();
           }
         }).catch((err)=>{
@@ -140,7 +143,7 @@ const dispatch=useDispatch();
               ></input>
                <div className="w-full items-end flex justify-end gap-4">
                <button className=" text-black border-[2px] border-[#999CA0]  px-4 py-2 rounded-xl text-lg font-semibold font-lato" onClick={(e)=>{e.preventDefault();setSection("basic")}}>Back</button>
-                <button className="bg-[#3E84F8] border-[2px] border-transparent text-white px-4 py-2 rounded-xl text-lg font-semibold font-lato" onClick={handleSubmit}>Done</button>
+                <button className="bg-[#3E84F8] border-[2px] border-transparent text-white px-4 py-2 rounded-xl text-lg font-semibold font-lato" onClick={handleSubmit}>{load ? <span>Done </span>:<span>Adding...</span> }</button>
                 
               </div>
              

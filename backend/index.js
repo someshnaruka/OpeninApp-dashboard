@@ -11,6 +11,7 @@ app.use(
     cors({
       origin: process.env.FRONTEND,
       credentials: true,
+      
     })
   );
   app.use(express.json());
@@ -57,8 +58,8 @@ app.post("/newuser",(req,res)=>{
     })
 });
 
-app.get("/getUser",(req,res)=>{
-const Useremail=req.query.email;
+app.post("/getUser",(req,res)=>{
+const Useremail=req.body.email;
 console.log(Useremail,"email value");
 
 User.findOne({
@@ -71,7 +72,9 @@ User.findOne({
 })
 
 
-
+app.get("/",(req,res)=>{
+    res.send("server running")
+})
 app.listen(PORT, () => {
     console.log("Server running on port 8080");
   });

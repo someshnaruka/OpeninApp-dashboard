@@ -15,7 +15,6 @@ useEffect(()=>{
   const token=localStorage.getItem("token");
   if(token==null)
   {
-    toast("Sign In to continue");
     navigate("/signin")
   }
 
