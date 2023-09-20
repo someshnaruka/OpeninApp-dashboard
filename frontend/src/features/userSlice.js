@@ -11,7 +11,7 @@ export const userSlice=createSlice({
     initialState,
     reducers:{
         loginRedux:(state,action)=>{
-            console.log(action.payload);
+           
         state.displayName=action.payload.displayName;
           state.email=action.payload.email;
           state.photoURL=action.payload.photoURL;

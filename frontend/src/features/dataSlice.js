@@ -10,7 +10,7 @@ export const dataSlice=createSlice({
     initialState,
     reducers:{
         dataRedux:(state,action)=>{
-           console.log(action.payload);
+          
             state.dataValue=[action.payload]
         },
        

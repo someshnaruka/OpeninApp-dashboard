@@ -42,7 +42,7 @@ const UserSchema = new mongoose.Schema(
 const User = mongoose.model("User", UserSchema);
 
 app.post("/newuser",(req,res)=>{
-    console.log(req.body);
+  
     const newUser=new User({
         Useremail:req.body.Useremail,
     name:req.body.name,
@@ -60,14 +60,13 @@ app.post("/newuser",(req,res)=>{
     })
 });
 
-app.post("/getUser",(req,res)=>{
-const Useremail=req.body.email;
-console.log(Useremail,"email value");
+app.get("/getUser",(req,res)=>{
+const Useremail=req.query.email;
+
 
 User.findOne({
     Useremail:Useremail}).then((data)=>{
-    console.log(data);
-    res.header("Access-Control-Allow-Origin", "*");
+    
     res.send({alert:true,result:data})
 }).catch((err)=>{
     console.log(err);

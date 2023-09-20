@@ -17,7 +17,7 @@ const dispatch=useDispatch();
     const auth = getAuth(app);
     auth.onAuthStateChanged(function(user) {
       if (user) {
-        console.log(user,"on refresh");
+   
         const userInfo={
           displayName:user.displayName,
           email:user.email,

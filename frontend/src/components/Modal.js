@@ -27,7 +27,7 @@ const dispatch=useDispatch();
           [name]:value
         }
       });
-      console.log(details);
+  
     };
 
     function handleSubmit(e){

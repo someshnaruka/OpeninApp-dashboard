@@ -23,20 +23,19 @@ function Dashboard() {
   const logindata=useSelector((state)=>state.user);
   const dispatch=useDispatch();
 const Userdata=useSelector((state)=>state.data.dataValue)
-console.log(Userdata,"login data");
-console.log(Userdata,"userdata");
+
   useEffect(() => {
     (() => {
-      // const config = {
-      //   params:{
-      //    email: logindata.email,
-      //   }
-      // };
-      const data={
-        email:logindata.email
-      }
+      const config = {
+        params:{
+         email: logindata.email,
+        }
+      };
+      // const data={
+      //   email:logindata.email
+      // }
       axios
-        .post(process.env.REACT_APP_SERVER_DOMAIN + "/getuser",data,{withCredentials:true})
+        .get(process.env.REACT_APP_SERVER_DOMAIN + "/getuser",config)
         .then((response) => {
           if(response.data.alert)
           {
@@ -52,9 +51,9 @@ console.log(Userdata,"userdata");
 
   const total = stats.length;
   const transaction = [...new Set(stats.map((post) => post.userId))].length;
-  console.log(transaction, "trans");
+  
 const [modal,setModal]=useState(false);
-  console.log(stats, "user data");
+
 
   const data = {
     labels: dataValue.map((post) => post.Week),
