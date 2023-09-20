@@ -53,6 +53,7 @@ app.post("/newuser",(req,res)=>{
     });
 
     newUser.save().then((data)=>{
+      res.header("Access-Control-Allow-Origin", "*");
         res.send({alert:true,message:"User Profile Created",result:data});
     }).catch((err)=>{
         console.log(err);
@@ -66,6 +67,7 @@ console.log(Useremail,"email value");
 User.findOne({
     Useremail:Useremail}).then((data)=>{
     console.log(data);
+    res.header("Access-Control-Allow-Origin", "*");
     res.send({alert:true,result:data})
 }).catch((err)=>{
     console.log(err);
