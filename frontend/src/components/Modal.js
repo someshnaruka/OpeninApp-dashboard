@@ -143,7 +143,7 @@ const dispatch=useDispatch();
               ></input>
                <div className="w-full items-end flex justify-end gap-4">
                <button className=" text-black border-[2px] border-[#999CA0]  px-4 py-2 rounded-xl text-lg font-semibold font-lato" onClick={(e)=>{e.preventDefault();setSection("basic")}}>Back</button>
-                <button className="bg-[#3E84F8] border-[2px] border-transparent text-white px-4 py-2 rounded-xl text-lg font-semibold font-lato" onClick={handleSubmit}>{load ? <span>Done </span>:<span>Adding...</span> }</button>
+                <button className="bg-[#3E84F8] border-[2px] border-transparent text-white px-4 py-2 rounded-xl text-lg font-semibold font-lato" onClick={handleSubmit}>{load ? <span>Adding... </span>:<span>Done</span> }</button>
                 
               </div>
              
