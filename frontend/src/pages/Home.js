@@ -22,7 +22,6 @@ useEffect(()=>{
 
 
 
-  console.log(section);
   function handlesection(value) {
     setSection(value);
   }
